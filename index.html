@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UNO Multiplayer</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <section id="lobby" class="lobby">
+    <div class="logo">UNO</div><h1>UNO Multiplayer</h1><p>Play with friends online</p>
+    <div class="lobby-card">
+      <input id="name" maxlength="18" placeholder="Enter your name" autocomplete="off">
+      <button id="create" class="primary">Create Room</button>
+      <div class="or">OR</div>
+      <div class="join-row"><input id="room" maxlength="8" placeholder="Room code"><button id="join">Join</button></div>
+      <p id="status" class="status"></p>
+    </div>
+  </section>
+
+  <section id="game" hidden>
+    <header class="gamebar">
+      <div class="brand"><span class="mini-logo">UNO</span><span>Multiplayer</span></div>
+      <div class="room-pill">ROOM <b id="roomCode">------</b><button id="copy" class="icon-btn" aria-label="Copy room link">⧉</button></div>
+      <button id="leave" class="menu-btn" aria-label="Leave game">☰</button>
+    </header>
+
+    <div class="board-wrap">
+      <div class="board">
+        <div class="felt-pattern"></div>
+        <div id="p2" class="seat seat-top"></div>
+        <div id="p3" class="seat seat-left"></div>
+        <div id="p4" class="seat seat-right"></div>
+
+        <div class="center-area">
+          <div class="pile draw-pile" id="drawPile"><div class="uno-back">UNO</div><span>DRAW</span></div>
+          <div class="discard-pile"><div id="pile" class="card card-center wild">UNO</div><span>DISCARD</span></div>
+        </div>
+        <div class="turn-ring" id="turnRing"></div>
+        <div class="uno-badge" id="unoBadge">UNO!</div>
+        <div class="color-indicator" id="colorIndicator">COLOR: —</div>
+      </div>
+
+      <div class="bottom-panel">
+        <div class="my-info"><div id="myAvatar" class="avatar me">YOU</div><div><b id="myName">You</b><small id="myTurn">Waiting...</small></div></div>
+        <div class="action-row"><button id="draw" class="action">Draw</button><button id="uno" class="uno-action">UNO!</button></div>
+      </div>
+      <div class="hand-title"><span>Your cards</span><small id="gameStatus"></small></div>
+      <div id="hand" class="hand"></div>
+    </div>
+  </section>
+
+  <div id="colorModal" class="modal" hidden><div class="modalbox"><h3>Choose a Color</h3><p>Pick the color for the next player.</p><div class="colors"><button data-c="red">RED</button><button data-c="yellow">YELLOW</button><button data-c="green">GREEN</button><button data-c="blue">BLUE</button></div></div></div>
+</main><script type="module" src="game.js"></script>
+</body></html>
